@@ -49,9 +49,13 @@ $(document).ready(function () {
         
         if (currentScore == targetScore) { // game over, player wins
             alert("You win!");
+            wins++;
+            $("#wins").html("Wins: " + wins);
             resetGame();
         }  else if (currentScore > targetScore) { // game over, player loses
             alert("Sorry, you went over.  You lose!");
+            losses++;
+            $("#losses").html("Losses: " + losses);
             resetGame();
         } 
     });
