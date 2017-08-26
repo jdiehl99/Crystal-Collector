@@ -1,0 +1,12 @@
+create zero value variables for each gem
+
+create random target score & display on screen
+value should be between 19-120
+
+assign random value to each gem
+hidden value between 1-12
+
+when clicked, add value of gem to total score & update screen
+
+if player hits target, they win and game is reset
+if player goes over target, they lose and game is reset.
