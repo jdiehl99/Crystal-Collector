@@ -1,11 +1,3 @@
-var computerChoices = ["PUG", "POODLE", "SCHNAUZER", "DOBERMAN", "BOXER", "CHIHUAHUA", "POMERANIAN", "BULLDOG", "LABRADOR", "DALMATION", "BEAGLE", "DACHSHUND", "GREYHOUND", "PEKINGESE"];
-var wins = 0;
-var losses = 0;
-var guessesRemaining = 15;
-var guessedSoFar = [];
-var chosenWord = [];
-
-
 // create new random number between defined range
 function newRandom(min, max) {
     min = Math.ceil(min);
@@ -25,26 +17,20 @@ $(document).ready(function () {
     for (i = 0; i < gems.length; i++) {
         var gemval = newRandom(1, 12);
         console.log('gemval', gemval);
-        var gemsBtn = $("<img src=\"assets/images/" + gems[i] + ".png\">")
-            .addClass(gems[i])
-            .attr("gem-val", gemval);
+  
+        var gemsBtn = $("<button><img src=\"assets/images/" + gems[i] + ".png\">")
+            .addClass("gem " + gems[i])
+            .attr("value", gemval);
 
         $("#buttons").append(gemsBtn);
 
         console.log('gems', gems[i])
-
     }
 
-    $(".redGem").on("click", function () {
-        console.log("red gem pressed");
+     // add click handlers to gems
+     $(".gem").on('click', function  (){
+        var number = $(this).val();
+        console.log('cliked!', number);
     });
-    $(".blueGem").on("click", function () {
-        console.log("blue gem pressed");
-    });
-    $(".yellowGem").on("click", function () {
-        console.log("yellow gem pressed");
-    });
-    $(".greenGem").on("click", function () {
-        console.log("green gem pressed");
-    });
+
 });
