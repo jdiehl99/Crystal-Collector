@@ -40,7 +40,6 @@ $(document).ready(function () {
         $("#buttons").append(gemsBtn)
     }
 
-
      // add click handlers to gems
      $(".gem").on('click', function  (){
         var number = $(this).val();
