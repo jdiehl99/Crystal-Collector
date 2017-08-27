@@ -18,12 +18,20 @@ function resetGame() {
     $("#targetScore").html("Target score: " + targetScore);
 }
 
+function newGemPoints() {
+    for (i = 0; i < gems.length; i++) {
+        // generate random values for gems between 1-12
+        var gemval = newRandom(1, 12);
+        $( "." + gems[i] ).attr("value", gemval);
+    }
+}
+
 // generate target score between 19-120
 var targetScore = newRandom(19, 120);
 $("#targetScore").html("Target score: " + targetScore);
 
 $(document).ready(function () {
-    for (i = 0; i < gems.length; i++) {
+     for (i = 0; i < gems.length; i++) {
         // generate random values for gems between 1-12
         var gemval = newRandom(1, 12);
         var gemsBtn = $("<button><img src=\"assets/images/" + gems[i] + ".png\">")
@@ -31,6 +39,8 @@ $(document).ready(function () {
             .attr("value", gemval);
         $("#buttons").append(gemsBtn)
     }
+
+
      // add click handlers to gems
      $(".gem").on('click', function  (){
         var number = $(this).val();
@@ -42,11 +52,13 @@ $(document).ready(function () {
             wins++;
             $("#wins").html("Wins: " + wins);
             resetGame();
+            newGemPoints();
         }  else if (currentScore > targetScore) { // game over, player loses
             alert("Sorry, you went over.  You lose!");
             losses++;
             $("#losses").html("Losses: " + losses);
             resetGame();
+            newGemPoints();
         } 
     });
 });
