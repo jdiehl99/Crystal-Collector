@@ -1,3 +1,9 @@
+body {
+    background-image: url("../images/pinkdust.png");
+}
+.container {
+    background-color: #fff;
+}
 img {
     height: 100px;
     padding: 10px;
@@ -5,4 +11,9 @@ img {
 button {
     background-color: #fff;
     border: none;
+}
+h1 {
+    text-align: center;
+    color: darkviolet;
+    font-weight: bold;
 }

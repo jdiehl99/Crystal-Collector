@@ -20,31 +20,21 @@ function resetGame() {
 
 // generate target score between 19-120
 var targetScore = newRandom(19, 120);
-console.log(targetScore);
 $("#targetScore").html("Target score: " + targetScore);
 
 $(document).ready(function () {
-
     for (i = 0; i < gems.length; i++) {
         // generate random values for gems between 1-12
         var gemval = newRandom(1, 12);
-        console.log('gemval', gemval);
-  
         var gemsBtn = $("<button><img src=\"assets/images/" + gems[i] + ".png\">")
             .addClass("gem " + gems[i])
             .attr("value", gemval);
-
-        $("#buttons").append(gemsBtn);
-
-        console.log('gems', gems[i])
+        $("#buttons").append(gemsBtn)
     }
-
      // add click handlers to gems
      $(".gem").on('click', function  (){
         var number = $(this).val();
-        console.log('gem clicked', number);
         currentScore = parseInt(currentScore) + parseInt(number);
-        console.log("current score updated",currentScore);
         $("#currentScore").html("Current score: " + currentScore);
         
         if (currentScore == targetScore) { // game over, player wins
@@ -59,5 +49,4 @@ $(document).ready(function () {
             resetGame();
         } 
     });
-
 });
